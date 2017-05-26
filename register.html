@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/reg_login.css"/>
+</head>
+<body>
+<div id="container">
+    <div class="register">
+        <h2>填写注册信息</h2>
+        <form id="postform" method="post">
+            <table>
+                <tbody><tr class="row0">
+                    <th class="tTit">手机</th>
+                    <td class="iCol">
+                        <input type="text" name="mobile" onfocus="MobileTips()" class="inp" onblur="checkMobile();" id="mobileNo">
+                    </td>
+                    <td class="col5" id="mobileTips"></td>
+                </tr>
+                <tr class="row1">
+                    <th class="tTit">用户名</th>
+                    <td class="iCol">
+                        <input id="userName" name="username" type="text" class="inp" onfocus="UsernameTips()" onblur="checkUsername()" maxlength="32">
+                    </td>
+                    <td class="col5" id="unameTips"></td>
+                </tr>
+
+                <tr class="row3">
+                    <th class="tTit">密码</th>
+                    <td class="iCol">
+                        <input id= "pwd" name="password" type="password" class="inp" onclick="pwdTips()" onblur="checkPwd()" maxlength="16">
+                    </td>
+                    <td class="col5" id="pwdTips"></td>
+                </tr>
+
+                <tr class="row4">
+                    <th class="tTit">确认密码</th>
+                    <td class="iCol">
+                        <input name="passwordConfirm" id="pwdagain" type="password" class="inp" onclick="PwdConfirm()" onblur="checkConfirm()" maxlength="16">
+                    </td>
+                    <td class="col5" id="pwdConfirm"></td>
+                </tr>
+                <tr class="row5">
+                    <th class="tTit"></th>
+                    <td class="iCol">
+                        <input class="inpBtn" type="button" id="regBtn" value="注&nbsp;册" style="border:none;" onclick="submitReg()">
+                    </td>
+                    <td class="col5">&nbsp;</td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/reg_log.js"></script>
+</div>
+</body>
+</html>

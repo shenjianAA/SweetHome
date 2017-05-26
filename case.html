@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/case.css"/>
+    <title></title>
+</head>
+<body>
+<div id="header">
+
+</div>
+<div id="section" class="clear">
+    <div id="switch" class="clear">
+        <div class="room">
+            <div class="icn">
+                <i></i>
+                <span>空间</span>
+            </div>
+            <ul class="con">
+                <li><a href="#">客厅</a></li>
+                <li><a href="#">卧室</a></li>
+                <li><a href="#">厨房</a></li>
+                <li><a href="#">餐厅</a></li>
+                <li><a href="#">卫生间</a></li>
+                <li><a href="#">儿童房</a></li>
+            </ul>
+        </div>
+        <div class="area">
+            <div class="icn">
+                <i></i>
+                <span>户型</span>
+            </div>
+            <ul class="con">
+                <li><a href="#">60平</a></li>
+                <li><a href="#">80平</a></li>
+                <li><a href="#">100平</a></li>
+                <li><a href="#">150平</a></li>
+                <li><a href="#">别墅</a></li>
+            </ul>
+        </div>
+        <div class="styles">
+            <div class="icn">
+                <i></i>
+                <span>风格</span>
+            </div>
+            <ul class="con">
+                <li><a href="#">现代简约</a></li>
+                <li><a href="#">地中海</a></li>
+                <li><a href="#">新中式</a></li>
+                <li><a href="#">美式</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content" class="clear">
+        页面加载中...请稍后...
+    </div>
+    <ol class="pager">
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+    </ol>
+</div>
+
+<div id="footer" >
+
+</div>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/index.js"></script>
+<script>
+    //案例动态加载
+    function loadpage(pageNo){
+        $.ajax({
+            type:"get",
+            url:"data/allcase.php?pageNo="+pageNo,
+            success:function(list){
+                var str="";
+                for(var i=0;i<list.length;i++){
+                    var tablist=list[i].tabs.split(",");
+                    str+=`<dl>
+                            <dt><img src="${list[i].cimg}" alt=""/></dt>
+                            <dd>`;
+                    for(var j=0;j<tablist.length;j++){
+                        str+= `<a href="#">${tablist[j]}</a>`
+                    }
+                    str+= `</dd>
+                         </dl>`;
+                }
+                content.innerHTML=str;
+            }
+        })
+    }
+    loadpage(1);
+    $("ol.pager").navSwitch();
+    $("ol.pager a").click(function(e){
+        e.preventDefault();
+        //3:获取页数 1 2 3
+        var p = $(this).html();
+        console.log(p);
+        //4:发送ajax loadPage(2);
+        loadpage(p);
+    });
+    $("ul.con a").click(function(e){
+        $("ol.pager").hide();
+        e.preventDefault();
+        var tab = $(this).html();
+        $.ajax({
+            type:"get",
+            url:"data/search_case.php?tab="+tab,
+            success:function(list){
+                var str="";
+                for(var i=0;i<list.length;i++){
+                    var tablist=list[i].tabs.split(",");
+                    str+=`<dl>
+                            <dt><img src="${list[i].cimg}" alt=""/></dt>
+                            <dd>`;
+                    for(var j=0;j<tablist.length;j++){
+                        str+= `<a href="#">${tablist[j]}</a>`
+                    }
+                    str+= `</dd>
+                         </dl>`;
+                }
+                content.innerHTML=str;
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

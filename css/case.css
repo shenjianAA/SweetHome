@@ -1,0 +1,253 @@
+*{
+    box-sizing:border-box;
+}
+#nav{
+    margin-bottom: 20px;
+}
+body{
+    font:12px "microsoft yahei",Arial,Helvetica,sans-serif;
+    color:#666;
+}
+body,h1,h2,h3,h4,h5,h6,p,ul,li,ol,dl,dd{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.lf{float:left;}
+.rt{float:right;}
+.clear:after{
+    content:"";
+    display:table;
+    clear:both;
+}
+a{
+    color:#666;
+    text-decoration:none;
+}
+a:hover{
+    color:#E38498;
+}
+img{vertical-align: bottom;}
+/*logo*/
+#header .head,#nav ul.nav-list,#banner,#section,#footer div.contact{
+    margin:0 auto;
+    width:1000px;
+}
+#header .head>div a{
+    width:60px;
+}
+#header .head>div a,#login_user>h2{
+    margin: 15px 0 0 20px;
+    padding: 0 5px;
+    font-size: 18px;
+    display:inline-block;
+    height:40px;
+    border:2px solid #E38498;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 38px;
+}
+/*主导航*/
+#nav{
+    background-color:#888;
+    margin-bottom: 30px;
+}
+#nav ul.nav-list>li{
+    float:left;
+}
+#nav ul.nav-list li>a{
+    display:block;
+    height:2em;
+    line-height:2em;
+    width:142px;
+    text-align: center;
+    font-size: 1.5em;
+    color:#fff;
+}
+#nav ul.nav-list>li.active{
+    background-color:#E38498;
+    /*227,132,152*/
+}
+li.drop{
+    position:relative;
+    width:142px;
+}
+li.drop i{
+    margin-left: 8px;
+    border: 5px solid transparent;
+    border-top-color: #fff;
+    position: relative;
+    top: 15px;
+}
+li.drop>ul.dropdown{
+    position:absolute;
+    z-index: 1;
+    display:none;
+}
+ul.dropdown>li{
+    width:142px;
+    background-color: #E38498;
+    border:1px solid #fff;
+}
+ul.dropdown>li>a{
+    margin-left: -10px;
+    transition: all 0.3s linear;
+}
+li.drop:hover{
+    background-color:#E38498;
+}
+li.drop:hover i{
+    border: 5px solid transparent;
+    border-bottom-color: #fff;
+    top:-15px;
+}
+li.drop:hover ul.dropdown{
+    display:block;
+}
+ul.dropdown>li:hover>a{
+    margin-left: 0;
+}
+/*switch*/
+#switch{
+    border:1px solid #333;
+    border-top: 3px solid #333;
+}
+#switch>div{
+    float:left;
+    padding: 10px;
+    overflow: hidden;
+    width:33%;
+    text-align: center;
+    border-right: 1px solid #333;
+}
+#switch>div>div.icn{
+    float:left;
+    width:30%;
+    height:80px;
+    padding: 10px 0;
+    border-right: 2px dotted #ddd;
+}
+div.icn>i{
+    display:block;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    background: url("../images/bgOther.png") no-repeat;
+}
+div.icn>span{
+    font-size: 16px;
+}
+div.room i{
+    width: 27px;
+    height: 31px;
+    background-position: 0 -52px;
+}
+div.area i{
+    width: 30px;
+    height: 29px;
+    background-position: -24px -52px;
+}
+#switch div.styles{
+    border-right-color: transparent;
+}
+div.styles i{
+    width: 27px;
+    height: 25px;
+    background-position: -53px -47px;
+}
+#switch>div>ul{
+    float:left;
+    width:70%;
+    padding-left: 5px;
+}
+#switch>div>ul>li{
+    float:left;
+    width:50%;
+}
+ul.con a{
+    display:block;
+    width:100%;
+    height:25px;
+    line-height: 25px;
+    font-size: 14px;
+    border:1px solid transparent;
+    border-radius: 5px;
+}
+ul.con>li:hover a{
+    border-color:#E38498;
+}
+/*content*/
+#content>dl{
+    float:left;
+    width:480px;
+    height:370px;
+    overflow: hidden;
+    margin: 10px;
+    border:1px solid #aaa;
+}
+#content>dl img{
+    width:100%;
+}
+#content>dl>dd{
+    height:50px;
+    padding:5px 0 5px 20px;
+}
+#content>dl>dd a{
+    font-size: 16px;
+    line-height:40px;
+    margin:10px;
+    padding: 5px;
+    border:1px solid #aaa;
+    border-radius: 5px;
+}
+#content>dl>dd a:hover{
+    background-color: #E38498;
+    color:#fff;
+}
+
+/*分页*/
+.pager {
+    margin: 15px;
+    float:right;
+}
+.pager li {
+    float:left;
+    margin: 10px;
+}
+.pager li>a{
+    display: block;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    padding: 9px 13px;
+}
+.pager li.active>a{
+    background: #E38498;
+    color: #fff;
+    border-color: transparent;
+    cursor: default;
+}
+
+
+/*footer 联系方式*/
+#footer{
+    margin-top:30px;
+    border-top: 2px solid #aaa;
+    padding-top: 10px;
+}
+#footer div.contact{
+    border-top:2px dotted #aaa;
+    padding: 10px 0 50px 0;
+}
+div.contact div{
+    float:left;
+    width:50%;
+    padding-left: 80px;
+    margin: 20px 0;
+}
+div.contact div span{
+    text-align: center;
+    display:inline-block;
+    height:50px;
+    font-size: 20px;
+    line-height: 50px;
+    margin-left: 20px;
+}
